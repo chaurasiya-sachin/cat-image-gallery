@@ -1,15 +1,21 @@
 import { useState } from "react";
- 
+import cat1 from './assets/cat1.webp' 
+import cat2 from './assets/cat2.webp' 
+import cat3 from './assets/cat3.webp' 
+import cat4 from './assets/cat4.webp' 
 
 function App() {
 
-const [SelectedImage, setSelectedImage] = useState("");
+const [SelectedImage, setSelectedImage] = useState(null);
 
-const handleClick=(url)=>{
+const handleClick=(image)=>{
   
-  setSelectedImage(url);
+  setSelectedImage(image);
+  
+  
   
 }
+
 
   return (
     <div>
@@ -17,26 +23,25 @@ const handleClick=(url)=>{
       <p>Click on the any Image!</p>
       <div>
         <img onClick={()=>{
-          handleClick("src/assets/cat1.webp")
-        }}  src="src/assets/cat1.webp"  width={80} />
+          handleClick({url:cat1,value:"cat1"})
+        }}  src={cat1}  width={80} />
         <img onClick={()=>{
-          handleClick("src/assets/cat2.webp")
-        }} src="src/assets/cat2.webp" width={80} />
+          handleClick({url:cat2,value:"cat2"})
+        }} src={cat2} width={80} />
         <img onClick={()=>{
-          handleClick("src/assets/cat3.webp")
-        }} src="src/assets/cat3.webp" width={80} />
+          handleClick({url:cat3,value:"cat3"})
+        }} src={cat3} width={80} />
         <img onClick={()=>{
-          handleClick("src/assets/cat4.webp")
-        }} src="src/assets/cat4.webp" width={80} />
+          handleClick({url:cat4,value:"cat4"})
+        }} src={cat4} width={80} />
       </div>
       <div>
          {SelectedImage && <div>
             <h3>Selected Image</h3>
-            <img src={SelectedImage} />
+            <img src={SelectedImage.url} />
           </div>}
       </div>
     </div>
-
   )
 }
 
